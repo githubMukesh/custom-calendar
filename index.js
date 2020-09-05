@@ -9,6 +9,12 @@ const appDiv = document.getElementById('app');
 function createCalendar(element,month,year){
     let table = `<table><tr><th>Monday</th><th>Tuesday</th><th>Wednesday</th>
        <th>Thursday</th><th>Friday</th><th>Saturday</th><th>Sunday</th></tr><tr>`;
+    
+    if(!(month && year)){
+      throw new Error('Invalid month');
+    }
+   if(month > 11 || year.toString().length > 4) throw new Error('Invalid month or year');
+
    month = month - 1;// JS month start from 0;  
    let date = new Date(year,month);
     // create empty cell value before 1st month date
@@ -39,4 +45,5 @@ function getDay(date){
   return day-1;
 }
 
-createCalendar(appDiv,9,2019);
+let date = new Date();
+createCalendar(appDiv,date.getMonth()+1, date.getFullYear());
