@@ -16,7 +16,7 @@ function createCalendar(element,month,year){
       table += `<td></td>`;
     }
      while(date.getMonth() === month){
-      // table += '<td>' + date.getDate() +'</td>';
+       table += '<td>' + date.getDate() +'</td>';
        if(getDay(date) === 6){
          table += `</tr><tr>`
        }
@@ -24,7 +24,7 @@ function createCalendar(element,month,year){
      }
 
    // create empty cell value after last month date
-    for(let i=0; i < getDay(date); i++ ){
+    for(let i= getDay(date); i < 7; i++ ){
       table += `<td></td>`;
     }
     table += `</tr></table>`;
